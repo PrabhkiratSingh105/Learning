@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+        body{
+            margin:0;
+        }
+        body,html{width: 100%;height: 100%;margin: 0;}
+        header{
+            position:fixed;
+            border: 1px solid black;
+            width: 100%;
+            height: 60px;
+        }
+        
+        ul>li{text-decoration: none;color:black;position: absolute; left:10px; font-size: 25px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+        ul>li:hover{cursor: pointer;text-decoration: underline;}
+        ul>a>button{position:absolute; border: 1px solid black; width: 100px; height:35px; background-color: whitesmoke;color: black;font-size: 25px;}
+        ul>a>button#login,ul>a>button#account{right: 20px;}
+        ul>a>button#Signup{right: 140px;}
+        ul>a>button:hover{background-color: blue;color: white; cursor: pointer;}
+        #fake{width: 100%;height: 60px;}
+        #post{border:1px dotted black;width:100%; max-width: 600px;background-color: aquamarine; border-radius: 10px; padding: 20px;margin: 20px;}
+        #post>center>form>center>input{padding: 0;}
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <div id="fake"></div>
+    <center>
+    <div id="post"></div></center>
+    <div id="blogs"></div>
+</body>
+<script>
+    if("{{data.login}}"=="False"){
+        document.querySelector("header").innerHTML='<ul><li>Blogs</li><a href="/login"><button id="login">Login</button></a><a href="/signup"><button id="Signup">Signup</button></a></ul>'
+    }
+    else{
+        document.getElementById("post").innerHTML='<center><form action="/" method="post"><input type="text" name="title" id="title" placeholder="Title" style="width: 100%; height: 29px; font-size: 25px;"><br><textarea name="blog" id="blog" style="width: 602px;font-size: 20px;" rows="4" placeholder="Blog..."></textarea><center><input type="submit" value="Post" id="post" style="background-color: blue; color: white; cursor: pointer;width: 70px;height: 45px;font-size: 25px;"></center></form></center>'
+        document.querySelector("header").innerHTML='<ul><li>Blogs</li><a href="/account"><button id="account">Account</button></a></ul>'
+    }
+</script>
+</html>
